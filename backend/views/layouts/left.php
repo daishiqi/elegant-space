@@ -30,7 +30,7 @@
                 'items' => [
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
                     ['label' => '分类管理', 'icon' => 'file-code-o', 'url' => ['/article-cate']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => '新增文章', 'icon' => 'dashboard', 'url' => ['/article-detail']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',

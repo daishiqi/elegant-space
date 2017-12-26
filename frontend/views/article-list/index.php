@@ -19,18 +19,20 @@
 </head>
 <body style="opacity:0">
 <header class="head">
-    <h1 class="head-title u-fl"><a href="/">DAISY</a></h1>
+    <h1 class="head-title u-fl"><a href="#">DAISY</a></h1>
     <nav class="head-nav u-fr">
         <ul class="head-nav__list">
-            <li class="head-nav__item"><a class="head-nav__link" href="/archives">LIST</a></li>
+            <li class="head-nav__item"><a class="head-nav__link" href="/article-list/index">LIST</a></li>
         </ul>
     </nav>
 </header>
 <main class="main">
+    <?php foreach($data as $v) :?>
     <article class="post">
+
         <header class="post__head archive">
-            <a href="/navicat-10-1-7-key/"><time class="post__time" datetime="2014-12-28T13:23:42.000Z">December 28, 2014</time></a>
-            <h1 class="post__title archive"><a href="/navicat-10-1-7-key/">Navicat 10.1.7 的注册码</a></h1>
+            <a href="<?php echo \yii\helpers\Url::to(['/article-list/detail','id'=>$v['id']])?>"><time class="post__time" datetime="<?php echo date('Y-m-d H:i:s',$v['create_time'])?>"><?php echo date('Y-m-d H:i:s',$v['create_time'])?></time></a>
+            <h1 class="post__title archive"><a href="<?php echo \yii\helpers\Url::to(['/article-list/detail','id'=>$v['id']])?>"><?php echo $v['title']?></a></h1>
         </header>
         <!--<footer class="post__foot u-cf">
             <ul class="post__tag u-fl">
@@ -38,7 +40,9 @@
                 <li class="post__tag__item"><a class="post__tag__link" href="/tags/navicat/">navicat</a></li>
             </ul>
         </footer>-->
+
     </article>
+    <?php endforeach;?>
 </main>
 <footer class="foot">
     <div class="foot-copy">

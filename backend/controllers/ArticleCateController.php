@@ -65,7 +65,7 @@ class ArticleCateController extends Controller
     {
         $model = new ArticleCate();
 
-        if ($model->load(Yii::$app->request->post())) {
+        if (Yii::$app->request->post()) {
             $data = Yii::$app->request->post();
             $model->cate_name = $data['ArticleCate']['cate_name'];
             $model->create_time = time();
@@ -127,4 +127,6 @@ class ArticleCateController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
 }
