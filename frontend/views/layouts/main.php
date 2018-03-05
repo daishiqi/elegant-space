@@ -23,6 +23,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
+
 <?php echo  Html::jsFile(Yii::$app->assetsUrl->scriptUrl.'/common/js/layer/layer.js') ?>
 <style>
     .wrap {
