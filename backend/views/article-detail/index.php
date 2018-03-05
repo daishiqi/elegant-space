@@ -24,7 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             'cate_id',
             'title',
-            'content:ntext',
             'create_time:datetime',
             // 'update_time:datetime',
 

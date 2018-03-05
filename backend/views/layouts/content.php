@@ -39,7 +39,7 @@ use dmstr\widgets\Alert;
     <div class="pull-right hidden-xs">
         <b>Version</b> 2.0
     </div>
-    <strong>Copyright &copy; 2016 <a href="http://www.daishiqi.com:8080">daisy</a>.</strong> 蒙ICP备17001557号-1
+    <strong>Copyright &copy; 2016 <a href="http://www.daishiqi.com">daisy</a>.</strong> 蒙ICP备17001557号-1
 </footer>
 
 <!-- Control Sidebar -->

@@ -2,73 +2,65 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use kartik\select2\Select2;
-use kartik\markdown\MarkdownEditor;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\ArticleDetail */
 /* @var $form yii\widgets\ActiveForm */
 
 ?>
-<?php echo  Html::jsFile(Yii::$app->assetsUrl->scriptUrl.'/common/js/jquery-3.1.1.min.js') ?>
-<?php echo  Html::jsFile(Yii::$app->assetsUrl->scriptUrl.'/common/js/layer/layer.js') ?>
-<style>
-    #articledetail-content {
-        margin: 0 30px 0 30px;
-        min-height:400px;
+<script type="text/javascript" src="<?php echo Yii::$app->assetsUrl->scriptUrl;?>./common/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="<?php echo Yii::$app->assetsUrl->scriptUrl;?>./common/js/layer/layer.js"></script>
+
+
+<style type="text/css">
+    div{
+        width:100%;
     }
 </style>
-<div class="card">
-    <div class="card-body card-padding">
-        <?php $form = ActiveForm::begin([
-            'id' => $model->formName(),
-            'options' => [
-                'class' => 'form-horizontal'
-            ],
-        ]);?>
+<div class="card-body card-padding">
+    <?php $form = ActiveForm::begin([
+        'id' => $model->formName(),
+        'options' => [
+            'class' => 'form-horizontal'
+        ],
+    ]);?>
         <div class="col-sm-12">
-            <div class="col-sm-6">
-                <?php echo $form->field($model, 'cate_id')->widget(Select2::classname(), [
-                    'data' => $cate_data,
-                    'options' => ['placeholder' =>'请选择资讯分类'],
-                ])->label('分类');?>
-            </div>
+            <?= \yidashi\markdown\Markdown::widget(['name' => 'mark-down', 'language' => 'zh'])?>
+    </div>
+    <div class="col-sm-12">
+        <div class="col-sm-6">
+            <?= $form->field($model, 'cate_id',['options' => ['class' => 'select']])->dropDownList([$cate_data], ['prompt' => '请选择'])->label('请选择资讯分类') ?>
         </div>
-        <div class="col-sm-12" >
-            <div class="col-sm-6">
-                <?= $form->field($model, 'title')->textInput()->label("文章资讯标题") ?>
-            </div>
-        </div>
-        <div class="col-sm-12" >
-            <div class="col-sm-6">
-                <?= $form->field($model, 'tags')->textInput()->label("标签") ?>
-            </div>
-        </div>
-        <div class="field-goods-is_show">
-            <div class=" goods"><label class="control-label"><span></span></label></div>
-            <div id="goods-is_show" class="form-group">
-               <?php
-               echo MarkdownEditor::widget([
-                   'model' => $model,
-                   'attribute' => 'content',
-               ]); ?>
-            </div>
-            <div class="help-block"></div>
-        </div>
-        <div class="form-group col-sm-12 text-center">
-            <?= Html::button('提交', ['class' => 'btn btn-primary submit']) ?>
-        </div>
-        <?php ActiveForm::end(); ?>
+
+
+    </div>
+    <div class="col-sm-12"
+    <div class="col-sm-6">
+        <?= $form->field($model, 'title')->textInput()->label("文章资讯标题") ?>
     </div>
 </div>
+<div class="col-sm-12" >
+    <div class="col-sm-6">
+        <?= $form->field($model, 'tags')->textInput()->label("标签") ?>
+    </div>
+</div>
+
+<div class="col-sm-12" style="margin-top:5px">
+    <?= Html::button('提交', ['class' => 'btn btn-primary submit']) ?>
+</div>
+<?php ActiveForm::end(); ?>
+</div>
+
+
 <script>
+
     $('.submit').click(function(){
-        var cate_name = $('#select2-articledetail-cate_id-container').html();
+        var cate_id = $('#articledetail-cate_id').val();
         var title = $('#articledetail-title').val();
         var tags = $('#articledetail-tags').val();
-        var content = $('#articledetail-content').val();
+        var content = $('.md-input').val();
         if(
-            cate_name == '' || cate_name == undefined ||
+            cate_id == '' || cate_id == undefined ||
             title == '' || title == undefined ||
             tags == '' || tags == undefined ||
             content == '' || content == undefined
@@ -79,7 +71,7 @@ use kartik\markdown\MarkdownEditor;
 
         $.ajax({
             url :'/article-detail/save-article',
-            data:{'cate_name':cate_name,'title':title,'tags':tags,'content':content},
+            data:{'cate_id':cate_id,'title':title,'tags':tags,'content':content},
             type:'post',
             dataType:'json',
             success:function (res) {
@@ -95,5 +87,6 @@ use kartik\markdown\MarkdownEditor;
 
 
 </script>
+
 
 

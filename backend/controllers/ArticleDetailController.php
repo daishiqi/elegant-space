@@ -131,12 +131,12 @@ class ArticleDetailController extends Controller
     {
         if(Yii::$app->request->isAjax) {
             $data = Yii::$app->request->post();
-            $cate_id = ArticleCate::find()->where(['cate_name'=>$data['cate_name']])->asArray()->one()['id'];
+            $cate_name = ArticleCate::find()->where(['id'=>$data['cate_id']])->asArray()->one()['cate_name'];
             $model = new ArticleDetail();
-            $model->cate_id = $cate_id;
+            $model->cate_id = $data['cate_id'];
             $model->title = $data['title'];
             $model->content = $data['content'];
-            $model->cate_name = $data['cate_name'];
+            $model->cate_name = $cate_name;
             $model->tags = $data['tags'];
             $model->create_time = time();
             $model->update_time = time();
