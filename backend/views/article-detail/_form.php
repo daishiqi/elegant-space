@@ -24,6 +24,13 @@ use yii\widgets\ActiveForm;
             'class' => 'form-horizontal'
         ],
     ]);?>
+
+
+
+
+
+
+
         <div class="col-sm-12">
             <?= \yidashi\markdown\Markdown::widget(['name' => 'mark-down', 'language' => 'zh'])?>
     </div>
@@ -41,8 +48,8 @@ use yii\widgets\ActiveForm;
 </div>
 <div class="col-sm-12" >
     <div class="col-sm-6">
-        <?= $form->field($model, 'tags')->textInput()->label("标签") ?>
-    </div>
+
+        <?= $form->field($model, 'tags')->textInput()->label("标签") ?></div>
 </div>
 
 <div class="col-sm-12" style="margin-top:5px">
