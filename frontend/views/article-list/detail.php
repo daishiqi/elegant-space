@@ -48,9 +48,6 @@ use yiichina\mdeditor\MdEditor;
             <img src="<?php echo Yii::$app->assetsUrl->scriptUrl;?>/frontend/img/pay.jpg" title="微信" />
         </div>
     </section>
-    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC8yOTI0Ni81ODEz">
-        <script>!function(e,t){var n,c=e.getElementsByTagName(t)[0];"function"!=typeof LivereTower&&(n=e.createElement(t),n.src="https://cdn-city.livere.com/js/embed.dist.js",n.async=!0,c.parentNode.insertBefore(n,c))}(document,"script")</script>
-    </div>
 </main>
 <footer class="foot">
     <div class="foot-copy">
@@ -58,7 +55,6 @@ use yiichina\mdeditor\MdEditor;
         <a href="#" target="view_window" style="color:#fff">蒙ICP备17001557号-1</a>
     </div>
 </footer>
-<script>!function(e,t,a,n,c,o){e.GoogleAnalyticsObject=n,e[n]||(e[n]=function(){(e[n].q=e[n].q||[]).push(arguments)}),e[n].l=+new Date,c=t.createElement(a),o=t.getElementsByTagName(a)[0],c.src="//www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script","ga"),ga("create","UA-73840162-1"),ga("send","pageview")</script>
 <script src="<?php echo Yii::$app->assetsUrl->scriptUrl;?>/frontend/js/scroller.js"></script>
 <script src="<?php echo Yii::$app->assetsUrl->scriptUrl;?>/frontend/js/main.js"></script>
 </body>
