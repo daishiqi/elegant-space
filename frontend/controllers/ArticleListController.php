@@ -51,9 +51,9 @@ class ArticleListController extends Controller
     {
         Yii::$app->response->format = yii\web\Response::FORMAT_JSON;
         $ip = Yii::$app->request->userIP;
-        $connection = Yii::$app->db;
-        $sql = 'select max(num) as num from visit_record where 1';
-        $id = $connection->createCommand($sql)->queryOne();
+	$connection = Yii::$app->db;
+	$sql = 'select max(num) as num from visit_record where 1';
+	$id = $connection->createCommand($sql)->queryOne();
         $data = VisitRecord::findOne($id);
         $num = ($data->num) + 1;
         $model = new VisitRecord();

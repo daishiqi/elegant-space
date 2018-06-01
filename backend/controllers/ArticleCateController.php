@@ -35,8 +35,6 @@ class ArticleCateController extends Controller
      */
     public function actionIndex()
     {
-
-    	
         $searchModel = new ArticleCateSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
